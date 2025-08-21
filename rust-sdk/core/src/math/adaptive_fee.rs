@@ -22,7 +22,7 @@ pub fn is_initialized_with_adaptive_fee(whirlpool: WhirlpoolFacade) -> bool {
 }
 
 #[derive(Debug)]
-pub(crate) enum FeeRateManager {
+pub enum FeeRateManager {
     Adaptive {
         a_to_b: bool,
         tick_group_index: i32,

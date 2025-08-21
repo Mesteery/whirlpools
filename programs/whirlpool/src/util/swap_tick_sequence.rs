@@ -6,7 +6,7 @@ use anchor_lang::prelude::*;
 use crate::state::LoadedTickArrayMut;
 
 pub struct SwapTickSequence<'a> {
-    pub(crate) arrays: Vec<ProxiedTickArray<'a>>,
+    pub arrays: Vec<ProxiedTickArray<'a>>,
 }
 
 impl<'a> SwapTickSequence<'a> {
@@ -22,7 +22,7 @@ impl<'a> SwapTickSequence<'a> {
         )
     }
 
-    pub(crate) fn new_with_proxy(
+    pub fn new_with_proxy(
         ta0: ProxiedTickArray<'a>,
         ta1: Option<ProxiedTickArray<'a>>,
         ta2: Option<ProxiedTickArray<'a>>,

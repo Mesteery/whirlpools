@@ -11,7 +11,7 @@ use solana_client::{
 use crate::{generated::shared::DecodedAccount, WHIRLPOOL_ID};
 
 #[cfg(feature = "solana-v1")]
-pub(crate) fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcProgramAccountsConfig {
+pub fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcProgramAccountsConfig {
     RpcProgramAccountsConfig {
         filters: Some(filters),
         account_config: RpcAccountInfoConfig {
@@ -25,7 +25,7 @@ pub(crate) fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcPro
 }
 
 #[cfg(not(feature = "solana-v1"))]
-pub(crate) fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcProgramAccountsConfig {
+pub fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcProgramAccountsConfig {
     RpcProgramAccountsConfig {
         filters: Some(filters),
         account_config: RpcAccountInfoConfig {
@@ -39,7 +39,7 @@ pub(crate) fn rpc_program_accounts_config(filters: Vec<RpcFilterType>) -> RpcPro
     }
 }
 
-pub(crate) async fn fetch_decoded_program_accounts<T: BorshDeserialize>(
+pub async fn fetch_decoded_program_accounts<T: BorshDeserialize>(
     rpc: &RpcClient,
     filters: Vec<RpcFilterType>,
 ) -> Result<Vec<DecodedAccount<T>>, Box<dyn Error>> {

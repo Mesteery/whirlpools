@@ -126,7 +126,7 @@ pub async fn get_compute_budget_instruction(
 }
 
 /// Calculate dynamic priority fee based on recent fees
-pub(crate) async fn calculate_dynamic_priority_fee(
+pub async fn calculate_dynamic_priority_fee(
     client: &RpcClient,
     rpc_config: &RpcConfig,
     writable_accounts: &[Pubkey],
@@ -140,7 +140,7 @@ pub(crate) async fn calculate_dynamic_priority_fee(
 }
 
 /// Get priority fee using the getRecentPrioritizationFees endpoint with percentile parameter
-pub(crate) async fn get_priority_fee_with_percentile(
+pub async fn get_priority_fee_with_percentile(
     client: &RpcClient,
     writable_accounts: &[Pubkey],
     percentile: Percentile,
@@ -177,7 +177,7 @@ pub(crate) async fn get_priority_fee_with_percentile(
 }
 
 /// Get priority fee using the legacy getRecentPrioritizationFees endpoint
-pub(crate) async fn get_priority_fee_legacy(
+pub async fn get_priority_fee_legacy(
     client: &RpcClient,
     writable_accounts: &[Pubkey],
     percentile: Percentile,

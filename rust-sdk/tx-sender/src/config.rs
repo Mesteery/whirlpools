@@ -30,7 +30,7 @@ use crate::rpc_config::RpcConfig;
 static GLOBAL_CONFIG: OnceLock<RwLock<GlobalConfig>> = OnceLock::new();
 
 // Initialize the global config
-pub(crate) fn get_global_config() -> &'static RwLock<GlobalConfig> {
+pub fn get_global_config() -> &'static RwLock<GlobalConfig> {
     GLOBAL_CONFIG.get_or_init(|| {
         RwLock::new(GlobalConfig {
             rpc_config: None,

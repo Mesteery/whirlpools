@@ -25,20 +25,20 @@ use crate::{
 };
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub(crate) enum TokenAccountStrategy {
+pub enum TokenAccountStrategy {
     WithoutBalance(Pubkey),
     WithBalance(Pubkey, u64),
 }
 
 #[derive(Debug)]
-pub(crate) struct TokenAccountInstructions {
+pub struct TokenAccountInstructions {
     pub create_instructions: Vec<Instruction>,
     pub cleanup_instructions: Vec<Instruction>,
     pub token_account_addresses: HashMap<Pubkey, Pubkey>,
     pub additional_signers: Vec<Keypair>,
 }
 
-pub(crate) async fn prepare_token_accounts_instructions(
+pub async fn prepare_token_accounts_instructions(
     rpc: &RpcClient,
     owner: Pubkey,
     spec: Vec<TokenAccountStrategy>,
@@ -275,7 +275,7 @@ pub(crate) async fn prepare_token_accounts_instructions(
     })
 }
 
-pub(crate) fn get_current_transfer_fee(
+pub fn get_current_transfer_fee(
     mint_account_info: Option<&SolanaAccount>,
     current_epoch: u64,
 ) -> Option<TransferFee> {

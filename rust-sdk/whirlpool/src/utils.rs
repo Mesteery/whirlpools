@@ -4,7 +4,7 @@ use solana_sdk::pubkey::Pubkey;
 
 const DEFAULT_CHUNK_SIZE: usize = 100;
 
-pub(crate) async fn batch_get_multiple_accounts(
+pub async fn batch_get_multiple_accounts(
     rpc_client: &RpcClient,
     pubkeys: &[Pubkey],
     chunk_size: Option<usize>,

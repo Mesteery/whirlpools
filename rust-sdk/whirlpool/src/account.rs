@@ -36,7 +36,7 @@ struct Amount {
     decimals: u8,
 }
 
-pub(crate) async fn get_token_accounts_for_owner(
+pub async fn get_token_accounts_for_owner(
     rpc: &RpcClient,
     owner: Pubkey,
     filter: TokenAccountsFilter,
@@ -63,7 +63,7 @@ pub(crate) async fn get_token_accounts_for_owner(
     Ok(token_accounts)
 }
 
-pub(crate) async fn get_rent(rpc: &RpcClient) -> Result<Rent, Box<dyn Error>> {
+pub async fn get_rent(rpc: &RpcClient) -> Result<Rent, Box<dyn Error>> {
     let rent = rpc.get_account(&Rent::id()).await?;
     let rent: Rent = bincode::deserialize(&rent.data)?;
     Ok(rent)

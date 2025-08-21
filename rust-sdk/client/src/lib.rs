@@ -22,7 +22,7 @@ pub use generated::types::*;
 pub use generated::shared::*;
 
 #[cfg(feature = "fetch")]
-pub(crate) use generated::*;
+pub use generated::*;
 
 pub use pda::*;
 pub use state::*;
